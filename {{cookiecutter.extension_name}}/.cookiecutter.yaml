@@ -1,0 +1,7 @@
+default_context:
+    author_name: "{{cookiecutter.author_name}}"
+    author_email: "{{cookiecutter.author_email}}"
+    mime_type: "{{cookiecutter.mime_type}}"
+    file_type: "{{cookiecutter.file_type}}"
+    mime_short_name: "{{cookiecutter.mime_short_name}}"
+    extension_name: "{{cookiecutter.extension_name}}"

@@ -1,0 +1,15 @@
+labextension/lib/
+nbextension/lib/
+nbextension/embed/
+node_modules/
+npm-debug.log
+*.egg-info/
+build/
+dist/
+
+# Compiled javascript
+{{cookiecutter.extension_name}}/__pycache__/
+{{cookiecutter.extension_name}}/static/
+
+# OS X
+.DS_Store

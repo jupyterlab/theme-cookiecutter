@@ -1,0 +1,10 @@
+
+.jp-OutputWidget{{cookiecutter.mime_short_name}} {
+   
+ }
+
+
+div.output_subarea.output_{{cookiecutter.mime_short_name}} {
+  padding: 0.4em 0;
+  max-width: 100%;
+}

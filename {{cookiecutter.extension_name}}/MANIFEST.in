@@ -1,0 +1,2 @@
+graft {{cookiecutter.extension_name}}/nbextension
+include {{cookiecutter.extension_name}}/labextension/*.tgz

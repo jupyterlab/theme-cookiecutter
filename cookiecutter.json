@@ -1,0 +1,9 @@
+{
+    "author_name": "",
+    "author_email": "",
+    "mime_type": "application/json",
+    "use_file_type": ["yes", "no"],
+    "file_type": "json",
+    "mime_short_name": "JSON",
+    "extension_name": "{{ cookiecutter.mime_short_name|lower|replace(' ', '_') }}_renderer"
+}
