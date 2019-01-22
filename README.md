@@ -1,6 +1,6 @@
 # theme-cookiecutter-ts
 
-A [cookiecutter](https://github.com/audreyr/cookiecutter) template for creating a JupyterLab theme extension.
+A [cookiecutter](https://github.com/audreyr/cookiecutter) template to help you make new JupyterLab theme extensions.
 
 ## Examples
 
