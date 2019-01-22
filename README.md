@@ -1,13 +1,8 @@
-# mimerender-cookiecutter
+# theme-cookiecutter-ts
 
-A [cookiecutter](https://github.com/audreyr/cookiecutter) template for creating
-a JupyterLab and Jupyter Notebook extension for rendering specific mime types and file extensions.
+A [cookiecutter](https://github.com/audreyr/cookiecutter) template for creating a JupyterLab theme extension.
 
 ## Examples
-
-* [jupyterlab_json](https://github.com/jupyterlab/jupyter-renderers)
-* [jupyterlab_geojson](https://github.com/jupyterlab/jupyter-renderers)
-* [jupyterlab_plotly](https://github.com/jupyterlab/jupyter-renderers)
 
 ## Usage
 
@@ -20,7 +15,7 @@ pip install cookiecutter
 Use cookiecutter to generate a package:
 
 ```
-cookiecutter https://github.com/jupyterlab/mimerender-cookiecutter
+cookiecutter https://github.com/jupyterlab/theme-cookiecutter-ts
 ```
 
 ## Prompts
@@ -29,27 +24,21 @@ The cookiecutter will prompt you with the following questions and generate a pro
   
 * `author_name`: Your full name. This will be used in the generated Python and npm packages.
 * `author_email`: Your email address. This will be used in the generated Python and npm packages.
-* `mime_type`: A valid mime type (e.g. `application/json`, `application/geo+json`). This will be used to render output data of this mime type with your extension.
-* `mime_short_name`: A display name (no spaces) for your mime type (e.g. `JSON`, `GeoJSON`). This will be used in the generated Python and npm packages, README, and class names.
-* `file_type`: **_OPTIONAL_** A valid file type (e.g. `json`, `geojson`). This will be used to open files of this type with your extension.
-* `extension_name`: Your JupyterLab and Jupyter Notebook extension name (e.g. `jupyerlab_json`, `jupyerlab_geojson`).
+* `extension_name`: Your JupyterLab extension name (e.g. `jupyerlab_json`, `jupyerlab_geojson`).
+* `org_name`: (optional) The name of your organization. If specified the full name of your extension will be `@org/name` (e.g. `@telamonian/theme-darcula`, `@jupyterlab/jupyterlab-pink`).
 
 ## Project structure
 
 The project is divided into 2 top-level directories, one for each extension (lab and notebook). 
 
-In most cases, you will only need to edit the `OutputWidget._render` method in `labextension/src/output.js` (for rendering output data of a specific mime type) and the `DocWidget.onUpdateRequest` method in `labextension/src/doc.js` (if your extension should render files of a specific type). 
-
 * `extension_name`
   * `extension_name`: The Python package
-    * `static`: Compiled Javascript for the notebook extension.
-    * `__init__.py`: Exports paths and metadata of lab and notebook extensions and exports an optional `display` method that can be imported into a notebook and used to easily display data using this renderer
-  * `src` - The extension source.
-    * `embed.js`: Entry point for embedded widget
-    * `extension.js`: Integration point with Jupyter Notebook
-    * `index.js`: Entry point for the Jupyter Notebook extension
-    * `plugin.js`: Entry point for the JupyterLab extension
-    * `renderer.js`: Methods for rendering output data of `mime_type` defined in prompts
+    * `style`: The assets (`.css` files, images, etc) that will make up your theme's actual style. This start out with the style from the default Jupyterlab Light theme.
+    * `src` - The extension source.
+      * `index.js`: Entry point for the Jupyter Notebook extension
+    * `package.json`: Metadata files that defines the files in your extension and their dependencies
+    * `tsconfig.json`: Tells the TypeScript compiler how to build your extension
+    * `webpack.config.js`: Minifies the files in the installed version of your theme
 
 ## Workflow
 
