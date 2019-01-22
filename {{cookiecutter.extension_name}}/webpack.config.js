@@ -46,30 +46,6 @@ var base = {
 
 module.exports = [
   /**
-   * Notebook extension
-   *
-   * This bundle only contains the part of the JavaScript that is run on
-   * load of the notebook. This section generally only performs
-   * some configuration for requirejs, and provides the legacy
-   * "load_ipython_extension" function which is required for any notebook
-   * extension.
-   */
-  Object.assign({}, base, {
-    entry: path.join(__dirname, 'src', 'nb_extension.js'),
-    output: Object.assign({}, base.output, {
-      filename: 'extension.js',
-      path: path.join(
-        __dirname,
-        '{{cookiecutter.extension_name}}',
-        'nbextension'
-      )
-    }),
-    externals: [
-      'nbextensions/{{cookiecutter.extension_name}}/index',
-      'base/js/namespace'
-    ]
-  }),
-  /**
    * This bundle contains the implementation of the extension.
    *
    * It must be an amd module
