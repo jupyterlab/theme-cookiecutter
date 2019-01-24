@@ -1,64 +1,39 @@
-var path = require('path');
-var version = require('./package.json').version;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
 
-/**
- * Custom webpack loaders are generally the same for all webpack bundles, hence
- * stored in a separate local variable.
- */
-var loaders = [
-  {
-    test: /\.js$/,
-    include: [path.join(__dirname, 'src')],
-    loader: 'babel-loader',
-    query: { presets: ['latest'] }
+module.exports = {
+  mode: 'production',
+  entry: {
+    index: './style/index.css',
+    embed: './style/embed.css'
   },
-  { test: /\.json$/, loader: 'json-loader' },
-  { test: /\.css$/, loader: 'style-loader!css-loader' },
-  { test: /\.html$/, loader: 'file-loader' },
-  { test: /\.(jpg|png|gif)$/, loader: 'file-loader' },
-  {
-    test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-    loader: 'url-loader?limit=10000&mimetype=application/font-woff'
-  },
-  {
-    test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-    loader: 'url-loader?limit=10000&mimetype=application/font-woff'
-  },
-  {
-    test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-    loader: 'url-loader?limit=10000&mimetype=application/octet-stream'
-  },
-  { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader' },
-  {
-    test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-    loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
-  }
-];
-
-var base = {
   output: {
-    libraryTarget: 'amd',
-    devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]'
+    path: path.resolve(__dirname, 'static'),
+    // we won't use these JS files, only the extracted CSS
+    filename: '[name].js'
   },
-  devtool: 'source-map',
-  module: { loaders },
-};
-
-module.exports = [
-  /**
-   * This bundle contains the implementation of the extension.
-   *
-   * It must be an amd module
-   */
-  Object.assign({}, base, {
-    entry: path.join(__dirname, 'src', 'nb_index.js'),
-    output: Object.assign({}, base.output, {
-      filename: 'index.js',
-      path: path.join(
-        __dirname,
-        '{{cookiecutter.extension_name}}',
-        'nbextension'
-      )
+  module: {
+    rules: [
+      { test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] },
+      {
+        test: /\.svg/,
+        use: [
+          { loader: 'svg-url-loader', options: {} },
+          { loader: 'svgo-loader', options: { plugins: [] } }
+        ]
+      },
+      {
+        test: /\.(png|jpg|gif|ttf|woff|woff2|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [{ loader: 'url-loader', options: { limit: 10000 } }]
+      }
+    ]
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: '[name].css',
+      chunkFilename: '[id].css'
     })
-  })
-];
+  ]
+};
