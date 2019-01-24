@@ -1,47 +1,66 @@
 {
   "name": "{{cookiecutter.extension_name}}",
   "version": "0.1.0",
-  "description": "A package for rendering {{cookiecutter.mime_short_name}} in Jupyter",
+  "description": "{{ cookiecutter.project_short_description }}",
   "author": "{{cookiecutter.author_name}} <{{cookiecutter.author_email}}>",
-  "main": "lib/index.js",
   "keywords": [
     "jupyter",
     "jupyterlab",
-    "jupyterlab-extension"
+    "jupyterlab-extension",
+    "jupyterlab-theme"
   ],
-  "scripts": {
-    "build:lib": "babel src -d lib",
-    "build:labextension": "cd {{ cookiecutter.extension_name }} && rimraf labextension && mkdirp labextension && cd labextension && npm pack ../..",
-    "build:nbextension": "webpack",
-    "build:all": "npm run build:lib && npm run build:labextension && npm run build:nbextension",
-    "build": "npm run build:lib",
-    "prepare": "npm run build",
-    "watch:nbextension": "webpack --watch",
-    "watch:lib": "babel src -d lib --watch",
-    "watch": "npm-run-all -p watch:*"
+  "license": "BSD-3-Clause",
+  "homepage": "{{cookiecutter.url}}",
+{%- if "http://github.com/" in cookiecutter.url or "https://github.com/" in cookiecutter.url %}
+  "bugs": {
+    "url": "{{cookiecutter.url}}/issues"
   },
-  "babel": {
-    "presets": ["latest"],
-    "plugins": ["transform-class-properties"]
+  "repository": {
+    "type": "git",
+    "url": "{{cookiecutter.url}}.git"
+  },
+{%- endif %}
+  "files": [
+    "lib/*.d.ts",
+    "lib/*.js.map",
+    "lib/*.js",
+    "style/*"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib/"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf lib",
+    "prepare": "npm run clean && npm run build",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@jupyterlab/application": "^0.19.1",
+    "@jupyterlab/apputils": "^0.19.1"
+  },
+  "devDependencies": {
+    "rimraf": "~2.6.2",
+    "typedoc": "~0.12.0",
+    "typescript": "~3.1.1",
+    "css-loader": "~0.28.7",
+    "mini-css-extract-plugin": "~0.4.4",
+    "svg-url-loader": "~2.3.1",
+    "svgo-loader": "~2.1.0",
+    "typescript": "~3.1.1",
+    "url-loader": "~1.0.1",
+    "watch": "~1.0.2",
+    "webpack": "~4.12.0",
+    "webpack-cli": "^3.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "jupyterlab": {
-    "mimeExtension": "lib/lab_extension"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.18.2",
-    "babel-loader": "^6.4.0",
-    "babel-preset-latest": "^6.16.0",
-    "babel-plugin-transform-class-properties": "^6.19.0",
-    "css-loader": "^0.25.0",
-    "file-loader": "^0.9.0",
-    "json-loader": "^0.5.4",
-    "npm-run-all": "^4.1.1",
-    "mkdirp": "^0.5.1",
-    "rimraf": "^2.6.2",
-    "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7",
-    "webpack": "^2.2.0"
+    "extension": true,
+    "themeDir": "static",
+    "themePath": "static/index.css"
   }
 }

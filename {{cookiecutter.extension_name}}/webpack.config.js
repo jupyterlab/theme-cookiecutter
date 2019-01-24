@@ -4,8 +4,7 @@ const path = require('path');
 module.exports = {
   mode: 'production',
   entry: {
-    index: './style/index.css',
-    embed: './style/embed.css'
+    index: './style/index.css'
   },
   output: {
     path: path.resolve(__dirname, 'static'),

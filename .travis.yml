@@ -1,32 +1,22 @@
 language: python
 python:
-  - 3.6
+  - "3.6"
 sudo: false
+dist: trusty
 cache:
   pip: true
   directories:
     - $HOME/.npm
-before_install:
-  - pip install -U pip setuptools
-  - nvm install 6
-  - pip install cookiecutter
 install:
-  - pushd $(mktemp -d)
-  - cookiecutter $TRAVIS_BUILD_DIR --no-input
-  - pushd json_renderer
-  - pip install -U -v -e .
-  - pip uninstall -y json_renderer
-  - pip install .
-before_script:
-  - |
-    export DISPLAY=:99.0
-    sh -e /etc/init.d/xvfb start
+  - python -m pip install -q -U pip
+  - pip install notebook
+  - pip install cookiecutter
+  - pip install --pre -U jupyterlab
 script:
-  - jupyter nbextension enable --py --sys-prefix json_renderer
-  - jupyter nbextension list
-  - pip install jupyterlab
-  - jupyter lab path
-  - jupyter labextension list
-  - jupyter labextension list 2>&1 | grep -q json_renderer
-  - jupyter labextension link
-  - popd
+  - cookiecutter . --no-input
+  - cd myextension
+  - npm install
+  - jupyter labextension install .
+  - jupyter lab clean
+  - jupyter labextension link .
+  - python -m jupyterlab.browser_check

@@ -1,6 +1,7 @@
 {
     "author_name": "",
     "author_email": "",
-    "extension_name": "{{cookiecutter.extension_name}}",
-    "org_name": "{{cookiecutter.org_name}}"
+    "extension_name": "{{ cookiecutter.extension_name|lower|replace(' ', '_') }}",
+    "org_name": "{{ cookiecutter.org_name|lower|replace(' ', '_') }}",
+    "url": "{{ cookiecutter.url|lower }}"
 }

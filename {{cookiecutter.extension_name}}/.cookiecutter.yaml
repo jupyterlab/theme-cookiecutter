@@ -1,5 +1,0 @@
-default_context:
-    author_name: "{{cookiecutter.author_name}}"
-    author_email: "{{cookiecutter.author_email}}"
-    extension_name: "{{cookiecutter.extension_name}}"
-    org_name: "{{cookiecutter.org_name}}"
