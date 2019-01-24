@@ -8,7 +8,7 @@ import {
 
 
 /**
- * A plugin for the {{title}}
+ * A plugin for {{ cookiecutter.extension_name }}
  */
 const plugin: JupyterLabPlugin<void> = {
   id: '{{name}}:plugin',

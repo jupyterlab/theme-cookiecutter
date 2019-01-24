@@ -1,7 +1,7 @@
 {
     "author_name": "",
     "author_email": "",
-    "extension_name": "{{ cookiecutter.extension_name|lower|replace(' ', '_') }}",
+    "extension_name": "mytheme",
     "org_name": "{{ cookiecutter.org_name|lower|replace(' ', '_') }}",
     "url": "{{ cookiecutter.url|lower }}"
 }
