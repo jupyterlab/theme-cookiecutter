@@ -6,19 +6,18 @@ import {
   IThemeManager
 } from '@jupyterlab/apputils';
 
-
 /**
- * A plugin for {{ cookiecutter.extension_name }}
+ * A plugin for {{ cookiecutter.id }}
  */
 const plugin: JupyterLabPlugin<void> = {
-  id: '{{name}}:plugin',
+  id: '{{ cookiecutter.id }}:plugin',
   requires: [IThemeManager],
   activate: function(app: JupyterLab, manager: IThemeManager) {
     manager.register({
-      name: '{{title}}',
+      name: '{{ cookiecutter.extension_name }}',
       isLight: true,
       load: function() {
-        return manager.loadCSS('{{name}}/index.css');
+        return manager.loadCSS('{{ cookiecutter.id }}/index.css');
       },
       unload: function() {
         return Promise.resolve(void 0);
@@ -27,6 +26,5 @@ const plugin: JupyterLabPlugin<void> = {
   },
   autoStart: true
 };
-
 
 export default plugin;

@@ -1,8 +1,8 @@
 {
-  "name": "{{cookiecutter.extension_name}}",
+  "name": "{{ cookiecutter.extension_name }}",
   "version": "0.1.0",
   "description": "{{ cookiecutter.project_short_description }}",
-  "author": "{{cookiecutter.author_name}} <{{cookiecutter.author_email}}>",
+  "author": "{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>",
   "keywords": [
     "jupyter",
     "jupyterlab",
@@ -55,12 +55,12 @@
   },
 {%- if "http://github.com/" in cookiecutter.url or "https://github.com/" in cookiecutter.url %}
   "bugs": {
-    "url": "{{cookiecutter.url}}/issues"
+    "url": "{{ cookiecutter.url }}/issues"
   },
   "repository": {
     "type": "git",
-    "url": "{{cookiecutter.url}}.git"
+    "url": "{{ cookiecutter.url }}.git"
   },
 {%- endif %}
-  "homepage": "{{cookiecutter.url}}"
+  "homepage": "{{ cookiecutter.url }}"
 }
