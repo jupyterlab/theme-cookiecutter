@@ -14,11 +14,11 @@
     "lib/*.d.ts",
     "lib/*.js.map",
     "lib/*.js",
-    "style/*.css",
-    "style/*.ttf",
-    "style/*.eot",
-    "style/*.woff",
-    "style/*.woff2"
+    "static/*.css",
+    "static/*.ttf",
+    "static/*.eot",
+    "static/*.woff",
+    "static/*.woff2"
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -26,9 +26,10 @@
     "lib": "lib/"
   },
   "scripts": {
-    "build": "tsc -b",
+    "build": "tsc -b && webpack",
+    "build:src": "tsc -b",
     "build:webpack": "webpack",
-    "clean": "rimraf lib",
+    "clean": "rimraf lib && rimraf static",
     "prepare": "npm run clean && npm run build",
     "watch": "tsc -w",
     "watch:webpack": "webpack --watch"
@@ -56,8 +57,8 @@
   },
   "jupyterlab": {
     "extension": true,
-    "themeDir": "style",
-    "themePath": "style/index.css"
+    "themeDir": "static",
+    "themePath": "static/index.css"
   },
   "homepage": "{{ cookiecutter.url }}",
 {%- if "http://github.com/" in cookiecutter.url or "https://github.com/" in cookiecutter.url %}
