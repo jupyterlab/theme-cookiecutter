@@ -3,7 +3,6 @@
     "author_email": "",
     "extension_name": "mytheme",
     "org_name": "",
-    "id": "{{ [cookiecutter.org_name, cookiecutter.extension_name]|join('/') if cookiecutter.org_name else cookiecutter.extension_name }}",
-    "url": "",
+    "homepage": "",
     "project_short_description": "A JupyterLab theme extension."
 }

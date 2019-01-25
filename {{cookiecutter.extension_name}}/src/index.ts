@@ -1,3 +1,5 @@
+{%- set extension_id = [cookiecutter.org_name, cookiecutter.extension_name]|join('/') if cookiecutter.org_name else cookiecutter.extension_name -%}
+
 import {
   JupyterLab, JupyterLabPlugin
 } from '@jupyterlab/application';
@@ -7,17 +9,17 @@ import {
 } from '@jupyterlab/apputils';
 
 /**
- * A plugin for {{ cookiecutter.id }}
+ * A plugin for {{ extension_id }}
  */
 const plugin: JupyterLabPlugin<void> = {
-  id: '{{ cookiecutter.id }}:plugin',
+  id: '{{ extension_id }}:plugin',
   requires: [IThemeManager],
   activate: function(app: JupyterLab, manager: IThemeManager) {
     manager.register({
       name: '{{ cookiecutter.extension_name }}',
       isLight: true,
       load: function() {
-        return manager.loadCSS('{{ cookiecutter.id }}/index.css');
+        return manager.loadCSS('{{ extension_id }}/index.css');
       },
       unload: function() {
         return Promise.resolve(void 0);

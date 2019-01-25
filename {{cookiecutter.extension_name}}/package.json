@@ -28,7 +28,7 @@
   "scripts": {
     "build": "tsc -b",
     "build:webpack": "webpack",
-    "clean": "rimraf lib",
+    "clean": "rimraf lib && rimraf static",
     "prepare": "npm run clean && npm run build",
     "watch": "tsc -w",
     "watch:webpack": "webpack --watch"
@@ -59,14 +59,14 @@
     "themeDir": "style",
     "themePath": "style/index.css"
   },
-  "homepage": "{{ cookiecutter.url }}",
-{%- if "http://github.com/" in cookiecutter.url or "https://github.com/" in cookiecutter.url %}
+  "homepage": "{{ cookiecutter.homepage }}",
+{%- if "github.com/" in cookiecutter.homepage %}
   "bugs": {
-    "url": "{{ cookiecutter.url }}/issues"
+    "url": "{{ cookiecutter.homepage }}/issues"
   },
   "repository": {
     "type": "git",
-    "url": "{{ cookiecutter.url }}.git"
+    "url": "{{ cookiecutter.homepage }}.git"
   }
 {%- else %}
   "bugs": {

@@ -1,6 +1,8 @@
-# {{ cookiecutter.extension_name }}
+{%- set extension_id = [cookiecutter.org_name, cookiecutter.extension_name]|join('/') if cookiecutter.org_name else cookiecutter.extension_name -%}
 
-{{cookiecutter.extension_name}}
+# {{ extension_id }}
+
+{{ cookiecutter.project_short_description }}
 
 ## Prerequisites
 
@@ -9,7 +11,7 @@
 ## Installation
 
 ```bash
-jupyter labextension install {{ cookiecutter.extension_name }}
+jupyter labextension install {{ extension_id }}
 ```
 
 ## Development
