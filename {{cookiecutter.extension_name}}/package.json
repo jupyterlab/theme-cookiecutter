@@ -2,7 +2,7 @@
   "name": "{{ cookiecutter.extension_name }}",
   "version": "0.1.0",
   "description": "{{ cookiecutter.project_short_description }}",
-  "author": "{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>",
+  "author": "{{ [cookiecutter.author_name, ' <', cookiecutter.author_email, '>']|join if cookiecutter.author_email else cookiecutter.author_name }}",
   "keywords": [
     "jupyter",
     "jupyterlab",
@@ -14,7 +14,11 @@
     "lib/*.d.ts",
     "lib/*.js.map",
     "lib/*.js",
-    "style/*"
+    "style/*.css",
+    "style/*.ttf",
+    "style/*.eot",
+    "style/*.woff",
+    "style/*.woff2"
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -22,11 +26,12 @@
     "lib": "lib/"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -b",
     "build:webpack": "webpack",
     "clean": "rimraf lib",
     "prepare": "npm run clean && npm run build",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "watch:webpack": "webpack --watch"
   },
   "dependencies": {
     "@jupyterlab/application": "^0.19.1",
@@ -38,6 +43,7 @@
     "typescript": "~3.1.1",
     "css-loader": "~0.28.7",
     "mini-css-extract-plugin": "~0.4.4",
+    "svgo": "~1.0.4",
     "svg-url-loader": "~2.3.1",
     "svgo-loader": "~2.1.0",
     "url-loader": "~1.0.1",
@@ -53,6 +59,7 @@
     "themeDir": "style",
     "themePath": "style/index.css"
   },
+  "homepage": "{{ cookiecutter.url }}",
 {%- if "http://github.com/" in cookiecutter.url or "https://github.com/" in cookiecutter.url %}
   "bugs": {
     "url": "{{ cookiecutter.url }}/issues"
@@ -60,7 +67,14 @@
   "repository": {
     "type": "git",
     "url": "{{ cookiecutter.url }}.git"
+  }
+{%- else %}
+  "bugs": {
+    "url": ""
   },
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
 {%- endif %}
-  "homepage": "{{ cookiecutter.url }}"
 }
