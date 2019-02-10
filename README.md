@@ -34,10 +34,9 @@ The project is divided into 2 top-level directories, one for each extension (lab
 * `extension_name`
     * `style`: The assets (`.css` files, images, etc) that will make up your theme's actual style. This start out with the style from the default Jupyterlab Light theme.
     * `src` - The extension source.
-        * `index.js`: Entry point for the Jupyter Notebook extension
+        * `index.ts`: Entry point for the JupyterLab extension
     * `package.json`: Metadata files that defines the files in your extension and their dependencies
     * `tsconfig.json`: Tells the TypeScript compiler how to build your extension
-    * `webpack.config.js`: Minifies the files in the installed version of your theme
 
 ## Workflow
 
@@ -62,4 +61,4 @@ This cookiecutter will change over time to adapt to API changes and best practic
 
 ## Package names  
 
-We suggest that extension names start with `jupyterlab_` and use underscores if needed to improve readability, such as `jupyterlab_myextension`.
+We suggest that extension names start with `jupyterlab_` and use underscores or dashes if needed to improve readability, such as `jupyterlab_myextension`.
