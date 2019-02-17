@@ -14,11 +14,7 @@
     "lib/*.d.ts",
     "lib/*.js.map",
     "lib/*.js",
-    "style/*.css",
-    "style/*.ttf",
-    "style/*.eot",
-    "style/*.woff",
-    "style/*.woff2"
+    "style/*"
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
