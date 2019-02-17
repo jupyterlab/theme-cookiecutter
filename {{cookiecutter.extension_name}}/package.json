@@ -14,7 +14,7 @@
     "lib/*.d.ts",
     "lib/*.js.map",
     "lib/*.js",
-    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
+    "style/*"
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
