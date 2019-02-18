@@ -7,7 +7,7 @@ set -ex
 set -o pipefail
 
 JL_SETTINGS=./.jupyter/lab/user-settings
-THEME_SETTINGS=${JL_SET_DIR}/@jupyterlab/apputils-extension/themes.jupyterlab-settings
+THEME_SETTINGS=${JL_SETTINGS}/@jupyterlab/apputils-extension/themes.jupyterlab-settings
 
 # Create a theme extension using the cookiecutter default inputs
 cookiecutter . --no-input
@@ -16,7 +16,7 @@ cookiecutter . --no-input
 jupyter labextension install ./mytheme
 
 # enable the theme in user-settings
-mkdir -p $(dirname $THEME_SET)
+mkdir -p $(dirname $THEME_SETTINGS)
 cat > THEME_SETTINGS << EOF
 {
     "theme": "mytheme"
