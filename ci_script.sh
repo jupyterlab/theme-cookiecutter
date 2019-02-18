@@ -6,8 +6,9 @@
 set -ex
 set -o pipefail
 
-JL_SETTINGS=./.jupyter/lab/user-settings
-THEME_SETTINGS=${JL_SETTINGS}/@jupyterlab/apputils-extension/themes.jupyterlab-settings
+# set a custom user-settings directory
+export JUPYTERLAB_SETTINGS_DIR=./.jupyter/lab/user-settings
+THEME_SETTINGS=${JUPYTERLAB_SETTINGS_DIR}/@jupyterlab/apputils-extension/themes.jupyterlab-settings
 
 # Create a theme extension using the cookiecutter default inputs
 cookiecutter . --no-input
@@ -27,4 +28,4 @@ EOF
 jupyter labextension list
 
 # run a test of the main JupyterLab app with the theme enabled
-JUPYTERLAB_SETTINGS_DIR=$JL_SETTINGS python -m jupyterlab.browser_check
+python -m jupyterlab.browser_check
