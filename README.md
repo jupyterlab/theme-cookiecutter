@@ -1,4 +1,4 @@
-# theme-cookiecutter-ts
+# theme-cookiecutter
 
 [![Build Status](https://travis-ci.org/jupyterlab/theme-cookiecutter-ts.svg?branch=master)](https://travis-ci.org/jupyterlab/theme-cookiecutter-ts) [![Build Status](https://dev.azure.com/jupyterlab/theme-cookiecutter-ts/_apis/build/status/jupyterlab.theme-cookiecutter-ts?branchName=master)](https://dev.azure.com/jupyterlab/theme-cookiecutter-ts/_build/latest?definitionId=1&branchName=master)
 
