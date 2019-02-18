@@ -18,7 +18,7 @@ pip install cookiecutter
 Use cookiecutter to generate a package:
 
 ```
-cookiecutter https://github.com/jupyterlab/theme-cookiecutter-ts
+cookiecutter https://github.com/jupyterlab/theme-cookiecutter
 ```
 
 ## Prompts
