@@ -1,6 +1,7 @@
 # theme-cookiecutter-ts
 
-[![Build Status](https://travis-ci.org/jupyterlab/theme-cookiecutter-ts.svg?branch=master)](https://travis-ci.org/jupyterlab/theme-cookiecutter-ts)
+[![Build Status](https://travis-ci.org/jupyterlab/theme-cookiecutter-ts.svg?branch=master)](https://travis-ci.org/jupyterlab/theme-cookiecutter-ts) [![Build Status](https://dev.azure.com/jupyterlab/jupyterlab/_apis/build/status/jupyterlab.jupyterlab?branchName=master)](https://dev.azure.com/jupyterlab/jupyterlab/_build/latest?definitionId=1&branchName=master)
+
 
 A [cookiecutter](https://github.com/audreyr/cookiecutter) template to help you make new JupyterLab theme extensions.
 
