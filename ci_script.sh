@@ -17,6 +17,7 @@ cookiecutter . --no-input
 cd mytheme
 npm install
 npm run build
+ls
 
 # install theme
 jupyter labextension install .
