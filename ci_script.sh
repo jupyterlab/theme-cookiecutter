@@ -13,14 +13,8 @@ THEME_SETTINGS="${JUPYTERLAB_SETTINGS_DIR}/@jupyterlab/apputils-extension/themes
 # Create a theme extension using the cookiecutter default inputs
 cookiecutter . --no-input
 
-# build the theme
-cd mytheme
-npm install
-npm run build
-ls lib
-
 # install theme
-jupyter labextension install .
+jupyter labextension install ./mytheme
 
 # enable the theme in user-settings
 mkdir -p $(dirname $THEME_SETTINGS)
