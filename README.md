@@ -1,7 +1,6 @@
 # theme-cookiecutter
 
-[![Build Status](https://travis-ci.org/jupyterlab/theme-cookiecutter.svg?branch=master)](https://travis-ci.org/jupyterlab/theme-cookiecutter) [![Build Status](https://dev.azure.com/jupyterlab/theme-cookiecutter-ts/_apis/build/status/jupyterlab.theme-cookiecutter-ts?branchName=master)](https://dev.azure.com/jupyterlab/theme-cookiecutter-ts/_build/latest?definitionId=1&branchName=master)
-
+[![Build Status](https://github.com/jupyterlab/theme-cookiecutter/workflows/main/badge.svg)](https://github.com/jupyterlab/theme-cookiecutter/actions)
 
 A [cookiecutter](https://github.com/audreyr/cookiecutter) template to help you make new JupyterLab theme extensions.
 
@@ -24,7 +23,7 @@ cookiecutter https://github.com/jupyterlab/theme-cookiecutter
 ## Prompts
 
 The cookiecutter will prompt you with the following questions and generate a project according to your responses:
-  
+
 * `author_name`: Your full name.
 * `author_email`: Your email address.
 * `extension_name`: Your JupyterLab extension name (e.g. `jupyerlab_json`, `jupyerlab_geojson`).
@@ -43,6 +42,6 @@ Once you fill in the cookiecutter prompts, you'll get a basic theme extension (w
     * `package.json`: Metadata files that defines the files in your extension and their dependencies
     * `tsconfig.json`: Tells the TypeScript compiler how to build your extension
 
-## Package names  
+## Package names
 
 We suggest that extension names start with `jupyterlab_` and use underscores or dashes if needed to improve readability, such as `jupyterlab_myextension`.
