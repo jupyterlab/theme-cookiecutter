@@ -11,10 +11,10 @@ import { IThemeManager } from '@jupyterlab/apputils';
  * A plugin for {{ extension_id }}
  */
 const plugin: JupyterFrontEndPlugin<void> = {
-  id: '{{ extension_id }}:plugin',
+  id: '@{{ extension_id }}:plugin',
   requires: [IThemeManager],
   activate: function(app: JupyterFrontEnd, manager: IThemeManager) {
-    const style = '{{ extension_id }}/index.css';
+    const style = '@{{ extension_id }}/index.css';
 
     manager.register({
       name: '{{ cookiecutter.extension_name }}',
