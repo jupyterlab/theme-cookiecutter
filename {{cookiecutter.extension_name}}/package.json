@@ -1,5 +1,5 @@
 {
-  "name": "{{ [cookiecutter.org_name, cookiecutter.extension_name]|join('/') if cookiecutter.org_name else cookiecutter.extension_name }}",
+  "name": "@{{ [cookiecutter.org_name, cookiecutter.extension_name]|join('/') if cookiecutter.org_name else cookiecutter.extension_name }}",
   "version": "0.1.0",
   "description": "{{ cookiecutter.project_short_description }}",
   "author": "{{ [cookiecutter.author_name, ' <', cookiecutter.author_email, '>']|join if cookiecutter.author_email else cookiecutter.author_name }}",
