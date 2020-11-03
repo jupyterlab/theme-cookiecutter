@@ -11,21 +11,39 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: [3.8]
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
-    - name: Install node
-      uses: actions/setup-node@v1
+      uses: actions/checkout@v2
+
+    - name: Setup conda
+      uses: conda-incubator/setup-miniconda@v2
       with:
-       node-version: '10.x'
-    - name: Install Python
-      uses: actions/setup-python@v1
-      with:
-        python-version: '3.7'
-        architecture: 'x64'
-    - name: Install dependencies
-      run: source ./ci_install.sh
-    - name: Run tests
-      run: source ./ci_script.sh
+        mamba-version: "*"
+        channels: conda-forge
+
+    - name: Mamba install dependencies
+      shell: bash -l {0}
+      run: mamba install python=${{ matrix.python-version }} pip nodejs jupyterlab=3 jupyter-packaging cookiecutter
+
+    - name: Create theme extension
+      shell: bash -l {0}
+      run: |
+        cookiecutter . --no-input
+        cd mytheme
+        pip install -e .
+        jlpm run eslint:check
+        jupyter labextension list 1>labextensions 2>&1
+        cat labextensions | grep "mytheme.*OK"
+        python -m jupyterlab.browser_check
+        jlpm run install:extension
+        jupyter labextension build .
+        jupyter labextension uninstall mytheme
+        pip uninstall -y mytheme jupyterlab
