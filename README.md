@@ -1,6 +1,8 @@
 # theme-cookiecutter
 
-[![Build Status](https://github.com/jupyterlab/theme-cookiecutter/workflows/CI/badge.svg)](https://github.com/jupyterlab/theme-cookiecutter/actions)
+## Archived
+
+**This project is archived. It is now possible to create a Theme Extension for JupyterLab using the following cookiecutter: https://github.com/jupyterlab/extension-cookiecutter-ts**.
 
 A [cookiecutter](https://github.com/audreyr/cookiecutter) template to help you make new JupyterLab theme extensions.
 
