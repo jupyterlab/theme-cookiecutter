@@ -1,6 +1,8 @@
 # theme-cookiecutter
 
-[![Build Status](https://github.com/jupyterlab/theme-cookiecutter/workflows/CI/badge.svg)](https://github.com/jupyterlab/theme-cookiecutter/actions)
+## Archived
+
+**This project is archived. Development is now happening in https://github.com/jupyterlab/extension-cookiecutter-ts**.
 
 A [cookiecutter](https://github.com/audreyr/cookiecutter) template to help you make new JupyterLab theme extensions.
 
