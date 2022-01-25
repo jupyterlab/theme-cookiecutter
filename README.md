@@ -2,7 +2,7 @@
 
 ## Archived
 
-**This project is archived. Development is now happening in https://github.com/jupyterlab/extension-cookiecutter-ts**.
+**This project is archived. It is now possible to create a Theme Extension for JupyterLab using the following cookiecutter: https://github.com/jupyterlab/extension-cookiecutter-ts**.
 
 A [cookiecutter](https://github.com/audreyr/cookiecutter) template to help you make new JupyterLab theme extensions.
 
